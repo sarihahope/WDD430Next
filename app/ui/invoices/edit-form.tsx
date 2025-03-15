@@ -6,7 +6,7 @@ import { useActionState } from 'react';
  
 export default function EditInvoiceForm({
   invoice,
-  customers,
+  // customers,
 }: {
   invoice: InvoiceForm;
   customers: CustomerField[];
@@ -15,7 +15,10 @@ export default function EditInvoiceForm({
   const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
   const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
  
-  return <form action={formAction}>{/* ... */}</form>;
+  return <form action={formAction}>{/* ... */}
+   {state.message && <p className="text-green-500">{state.message}
+    </p>}
+   </form>;
 }
 
 // import {
